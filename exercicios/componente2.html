@@ -11,23 +11,30 @@
 <body class="exercicio">
 
     <div id="app">
-        <ola nome="André"></ola>
+        <contador></contador>
     </div>
 
     <script>
-        Vue.component('ola', {
+        Vue.component('contador', {
             props: ['nome'],
             data: function() {
                 return {
                     contador: 0
                 }
             },
+            methods: {
+                add(){
+                    this.contador ++
+                }
+            },
             template:`
                 <div>
-                    <h1> {{nome}}  </h1>
+                    <h1> {{contador}}  </h1>
+                    <button @click="add">+1</button>
                 </div>    
              `,
         });
+        
         new Vue({
             el: "#app",
         })
